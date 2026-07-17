@@ -1,4 +1,33 @@
-export default {
+import { Rule } from 'sanity';
+
+interface SchemaField {
+  name: string;
+  title: string;
+  type: string;
+  initialValue?: string;
+  description?: string;
+  options?: {
+    hotspot?: boolean;
+  };
+  of?: Array<{
+    type: string;
+    options?: {
+      hotspot?: boolean;
+    };
+    fields?: SchemaField[];
+  }>;
+  fields?: SchemaField[];
+  validation?: (rule: Rule) => Rule;
+}
+
+interface HeroSectionSchema {
+  name: string;
+  title: string;
+  type: 'document';
+  fields: SchemaField[];
+}
+
+const heroSection: HeroSectionSchema = {
   name: 'heroSection',
   title: 'Hero & Mission Sections Block',
   type: 'document',
@@ -75,4 +104,6 @@ export default {
       options: { hotspot: true }
     }
   ]
-}
+};
+
+export default heroSection;

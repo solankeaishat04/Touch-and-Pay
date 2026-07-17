@@ -105,22 +105,24 @@ export default function Navbar() {
                 />
               </button>
 
-              {/* Desktop Dropdown Card Grid */}
+              {/* Desktop Dropdown Card Grid with Invisible Hover Bridge */}
               {activeDropdown === item.label && (
-                <div className="absolute left-0 top-full z-50 mt-1 w-56 rounded-2xl border border-neutral-100 bg-[#F4F6F9]/90 p-1 shadow-xl backdrop-blur-md animate-in fade-in slide-in-from-top-2 duration-200">
-                  <div className="rounded-xl bg-white p-2">
-                    <ul className="space-y-0.5">
-                      {item.children.map((child) => (
-                        <li key={child.label}>
-                          <Link
-                            href={child.href}
-                            className="block rounded-lg px-3 py-2 text-xs font-medium text-neutral-700 transition hover:bg-neutral-50 hover:text-neutral-900"
-                          >
-                            {child.label}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
+                <div className="absolute left-0 top-full z-50 w-56 pt-2 animate-in fade-in slide-in-from-top-1 duration-150">
+                  <div className="rounded-2xl border border-neutral-100 bg-[#F4F6F9]/90 p-1 shadow-xl backdrop-blur-md">
+                    <div className="rounded-xl bg-white p-2">
+                      <ul className="space-y-0.5">
+                        {item.children.map((child) => (
+                          <li key={child.label}>
+                            <Link
+                              href={child.href}
+                              className="block rounded-lg px-2 py-2 text-xs font-medium text-neutral-700 transition hover:bg-neutral-50 hover:text-neutral-900"
+                            >
+                              {child.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 </div>
               )}

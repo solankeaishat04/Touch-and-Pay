@@ -1,4 +1,4 @@
-// schemas/dataProtectionPage.ts
+
 interface Rule {
   required(): Rule;
 }

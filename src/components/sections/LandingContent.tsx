@@ -30,7 +30,7 @@ export default async function LandingContent() {
     <div className="w-full bg-white text-neutral-900 overflow-x-hidden">
       
       {/* SECTION 1: HERO ENVIRONMENT */}
-      <section className="mx-auto max-w-7xl px-6 py-12 md:py-20 lg:px-10 lg:py-24 grid grid-cols-1 gap-12 lg:grid-cols-12 items-center">
+      <section className="mx-auto max-w-7xl px-4 py-12 md:py-20 lg:px-10 lg:py-24 grid grid-cols-1 gap-12 lg:grid-cols-12 items-center">
         <div className="lg:col-span-7 flex flex-col justify-center">
           <AnimateIn direction="left" delay={0.1}>
             <span className="inline-block rounded-full bg-[#FDF2EB] px-3 py-1.5 text-[10px] font-bold tracking-wider text-[#E87C36] uppercase">
@@ -93,8 +93,8 @@ export default async function LandingContent() {
                 <Image
                   src={urlFor(data.missionImage).url()}
                   alt="Transit System Validation Array"
-                  width={460}
-                  height={460}
+                  width={500}
+                  height={660}
                   className="object-cover w-full h-auto aspect-square"
                 />
               </div>

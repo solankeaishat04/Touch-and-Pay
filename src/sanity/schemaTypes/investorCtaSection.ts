@@ -1,11 +1,49 @@
-export default {
+import { Rule } from 'sanity';
+
+interface SchemaField {
+  name: string;
+  title: string;
+  type: string;
+  initialValue?: string;
+  description?: string;
+  options?: {
+    hotspot?: boolean;
+  };
+  of?: Array<{
+    type: string;
+    options?: {
+      hotspot?: boolean;
+    };
+    fields?: SchemaField[];
+  }>;
+  fields?: SchemaField[];
+  validation?: (rule: Rule) => Rule;
+}
+
+interface InvestorCtaSectionSchema {
+  name: string;
+  title: string;
+  type: 'document';
+  fields: SchemaField[];
+}
+
+const investorCtaSection: InvestorCtaSectionSchema = {
   name: 'investorCtaSection',
-  title: 'Investors & Call to Action Banner',
+  title: 'Investors Section',
   type: 'document',
   fields: [
-    // Investor Section Fields
-    { name: 'investorHeading', title: 'Investors Title', type: 'string', initialValue: 'Our Investors' },
-    { name: 'investorSubheading', title: 'Investors Subtext', type: 'string', initialValue: 'We are proud to be supported by world-class investors who believe in our mission...' },
+    { 
+      name: 'investorHeading', 
+      title: 'Investors Title', 
+      type: 'string', 
+      initialValue: 'Our Investors' 
+    },
+    { 
+      name: 'investorSubheading', 
+      title: 'Investors Subtext', 
+      type: 'string', 
+      initialValue: 'We are proud to be supported by world-class investors who believe in our mission...' 
+    },
     {
       name: 'investorLogos',
       title: 'Investor Logos',
@@ -24,16 +62,8 @@ export default {
           ]
         }
       ]
-    },
-    // CTA Banner Fields
-    { name: 'ctaHeading', title: 'CTA Banner Title', type: 'string', initialValue: 'Ready to Simplify Your Payments?' },
-    { name: 'ctaDescription', title: 'CTA Banner Subtext', type: 'string', initialValue: 'Join MILLIONS of commuters and merchants already using TAP.' },
-    { name: 'ctaButtonText', title: 'CTA Button Text', type: 'string', initialValue: 'Contact Us' },
-    
-{name: 'ctaImage',
-  title: 'CTA Corner Image Graphic',
-  type: 'image',
-  options: { hotspot: true }
-}
+    }
   ]
-}
+};
+
+export default investorCtaSection;

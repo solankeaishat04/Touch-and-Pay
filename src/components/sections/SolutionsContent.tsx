@@ -26,10 +26,10 @@ export default async function SolutionsContent() {
       {/* ================= COWRY FEATURE CONTAINER BLOCK ================= */}
       <section className="mx-auto max-w-7xl px-6 lg:px-10 mt-6">
         <AnimateIn type="zoom" delay={0.1}>
-          <div className="w-full rounded-[2.5rem] bg-[#EDF5FF] p-8 md:p-14 lg:p-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="w-full rounded-[2.5rem] bg-[#EDF5FF] p-8 md:p-14 lg:p-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             
-            {/* Left Content Column */}
-            <div className="lg:col-span-7 flex flex-col justify-center">
+            {/* Left Content Column */} 
+            <div className="lg:col-span-7 flex flex-col justify-start">
               <span className="inline-block self-start rounded-full bg-white/80 px-3 py-1.5 text-[10px] font-bold tracking-wider text-[#3B82F6] uppercase">
                 {data.featureEyebrow}
               </span>
@@ -88,7 +88,7 @@ export default async function SolutionsContent() {
       <section className="mx-auto max-w-7xl px-6 lg:px-10 mt-24">
         
         {/* Header Heading Group */}
-        <div className="text-center max-w-xl mx-auto mb-16">
+        <div className="text-left max-w-xl mx-left mb-16">
           <AnimateIn direction="up">
             <h2 className="text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
               {data.solutionsHeading}
@@ -112,14 +112,14 @@ export default async function SolutionsContent() {
                     {data.commuterDescription || "For Commuters – TAP redefines daily commuting by offering a hassle-free way to pay for buses, trains, and ferries. No queues, no cash—just tap and go."}
                   </p>
                 </div>
-                <div className="md:col-span-5 flex justify-end items-center">
+                <div className="md:col-span-5 flex justify-end items-start">
                   {data.commuterImage && (
                     <Image
                       src={urlFor(data.commuterImage).url()}
                       alt="Commuter Pass Cards"
-                      width={280}
-                      height={200}
-                      className="object-contain max-h-[180px] w-auto"
+                      width={300}
+                      height={250}
+                      className="object-contain max-h-[240px] w-auto"
                     />
                   )}
                 </div>

@@ -1,15 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import Image from "next/image";
-import Link from "next/link";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
 import AnimateIn from "./AnimateIn";
+import ContactForm from "./ContactForm";
 
 async function getInvestorData() {
+  // Only fetching investor content now that the CTA banner is removed
   const query = `*[_type == "investorCtaSection"][0]{
-    investorHeading, investorSubheading, investorLogos,
-    ctaHeading, ctaDescription, ctaButtonText,
-    ctaImage // ◄─ Fetches your dynamic corner asset mapping
+    investorHeading, investorSubheading, investorLogos
   }`;
   return await client.fetch(query, {}, { next: { revalidate: 60 } });
 }
@@ -79,44 +78,55 @@ export default async function InvestorCtaContent() {
         </div>
       </section>
 
-      {/* ================= CALL TO ACTION BANNER ================= */}
-      <section className="mx-auto max-w-5xl px-6 mt-12 mb-12">
-        <AnimateIn type="zoom" delay={0.2}>
-          <div className="relative w-full rounded-[2.5rem] bg-[#051329] px-8 py-16 md:p-20 overflow-hidden flex flex-col items-start justify-center min-h-[280px] shadow-xl">
-            
-            <div className="z-10 max-w-xl">
-              <h3 className="text-3xl font-black tracking-tight text-white sm:text-4xl">
-                {data.ctaHeading}
-              </h3>
-              <p className="mt-4 text-sm text-neutral-400 leading-relaxed max-w-sm font-normal">
-                {data.ctaDescription}
+      {/* ================= DYNAMIC CONTACT FORM SECTION ("Let's Build Together") ================= */}
+      <section id="contact" className="mx-auto max-w-5xl px-6 py-12 scroll-mt-24">
+        <div className="w-full bg-[#051329] rounded-[2.5rem] p-8 md:p-16 flex flex-col lg:flex-row gap-12 text-white shadow-xl">
+          
+          {/* Information Column */}
+          <div className="flex-1 flex flex-col justify-between gap-8">
+            <div>
+              <h2 className="text-4xl md:text-5xl font-black leading-tight">Let's build together.</h2>
+              <p className="text-neutral-400 mt-4 max-w-md font-normal leading-relaxed">
+                Ready to digitize your payment infrastructure? Get in touch with our team today.
               </p>
-              
-              <div className="mt-8">
-                <Link 
-                  href="#contact" 
-                  className="inline-block rounded-xl bg-white px-7 py-4 text-xs font-bold text-neutral-900 shadow-sm transition transform hover:scale-105 hover:bg-neutral-100"
-                >
-                  {data.ctaButtonText}
-                </Link>
-              </div>
             </div>
 
-            {/* Dynamic Corner Graphic Rendered directly from Sanity Asset Bucket */}
-            {data.ctaImage && (
-              <div className="absolute right-0 bottom-0 top-0 w-1/2 md:w-1/3 pointer-events-none select-none hidden sm:block">
-                <Image
-                  src={urlFor(data.ctaImage).url()}
-                  alt="Abstract Decorative Design Corner Layout Asset"
-                  fill
-                  className="object-contain object-right-bottom"
-                  priority
-                />
+            <div className="flex flex-col gap-6">
+              {/* Email Connection */}
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-xl bg-[#111c2e] flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-[#f27424]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L22 8m-2-5H4a2 2 0 00-2 2v14a2 2 0 002 2h16a2 2 0 002-2V5a2 2 0 00-2-2z" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-[10px] uppercase tracking-wider text-neutral-400 font-bold">Email Us</p>
+                  <a href="mailto:ask@touchandpay.me" className="text-sm font-semibold hover:text-[#f27424] transition-colors">ask@touchandpay.me</a>
+                </div>
               </div>
-            )}
 
+              {/* Physical Location */}
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-xl bg-[#111c2e] flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-[#f27424]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-[10px] uppercase tracking-wider text-neutral-400 font-bold">Visit Us</p>
+                  <p className="text-sm font-semibold">62, Shipeolu Street, Somolu, Lagos, Nigeria</p>
+                </div>
+              </div>
+            </div>
           </div>
-        </AnimateIn>
+
+          {/* Interactive Form Component Column */}
+          <div className="flex-1 bg-[#091932] rounded-3xl p-6 md:p-8 border border-neutral-800">
+            <ContactForm />
+          </div>
+
+        </div>
       </section>
 
     </div>

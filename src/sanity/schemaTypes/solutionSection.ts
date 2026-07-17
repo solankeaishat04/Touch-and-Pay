@@ -1,4 +1,33 @@
-export default {
+import { Rule } from 'sanity';
+
+interface SchemaField {
+  name: string;
+  title?: string;
+  type: string;
+  initialValue?: string;
+  description?: string;
+  options?: {
+    hotspot?: boolean;
+  };
+  of?: Array<{
+    type: string;
+    options?: {
+      hotspot?: boolean;
+    };
+    fields?: SchemaField[];
+  }>;
+  fields?: SchemaField[];
+  validation?: (rule: Rule) => Rule;
+}
+
+interface SolutionsSectionSchema {
+  name: string;
+  title: string;
+  type: 'document';
+  fields: SchemaField[];
+}
+
+const solutionsSection: SolutionsSectionSchema = {
   name: 'solutionsSection',
   title: 'Cowry Showcase & Audience Solutions',
   type: 'document',
@@ -27,17 +56,19 @@ export default {
     { name: 'solutionsSubheading', title: 'Solutions Description Subtext', type: 'string', initialValue: 'Designed for Commuters, Merchants, and Businesses' },
     
     // Commuter Card Matrix
-    { name: 'commuterTitle', type: 'string', initialValue: 'FOR COMMUTERS' },
-    { name: 'commuterDescription', type: 'text' },
-    { name: 'commuterImage', type: 'image', options: { hotspot: true } },
+    { name: 'commuterTitle', title: 'Commuter Title', type: 'string', initialValue: 'FOR COMMUTERS' },
+    { name: 'commuterDescription', title: 'Commuter Description', type: 'text' },
+    { name: 'commuterImage', title: 'Commuter Image', type: 'image', options: { hotspot: true } },
 
     // Business Card Matrix
-    { name: 'businessTitle', type: 'string', initialValue: 'FOR BUSINESSES' },
-    { name: 'businessDescription', type: 'text' },
+    { name: 'businessTitle', title: 'Business Title', type: 'string', initialValue: 'FOR BUSINESSES' },
+    { name: 'businessDescription', title: 'Business Description', type: 'text' },
 
     // Merchant Card Matrix
-    { name: 'merchantTitle', type: 'string', initialValue: 'FOR MERCHANTS' },
-    { name: 'merchantDescription', type: 'text' },
-    { name: 'merchantImage', type: 'image', options: { hotspot: true } }
+    { name: 'merchantTitle', title: 'Merchant Title', type: 'string', initialValue: 'FOR MERCHANTS' },
+    { name: 'merchantDescription', title: 'Merchant Description', type: 'text' },
+    { name: 'merchantImage', title: 'Merchant Image', type: 'image', options: { hotspot: true } }
   ]
-}
+};
+
+export default solutionsSection;
