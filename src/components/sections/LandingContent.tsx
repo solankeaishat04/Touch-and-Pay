@@ -85,7 +85,7 @@ export default async function LandingContent() {
       {/* SECTION 2: CORPORATE MISSION ENVIRONMENT */}
       <section className="mx-auto max-w-7xl px-6 py-12 md:py-20 lg:px-10 lg:py-24 grid grid-cols-1 gap-12 lg:grid-cols-12 items-center">
         
-        <div className="lg:col-span-5 order-2 lg:order-1 flex justify-center">
+        <div className="lg:col-span-6 order-2 lg:order-1 flex justify-center">
           <AnimateIn type="zoom" delay={0.2}>
             {/* ─── FIXED: Changed from data.missionImageClean to data.missionImage ─── */}
             {data.missionImage && (
@@ -102,7 +102,7 @@ export default async function LandingContent() {
           </AnimateIn>
         </div>
 
-        <div className="lg:col-span-7 order-1 lg:order-2 flex flex-col justify-center">
+        <div className="lg:col-span-6 order-1 lg:order-2 flex flex-col justify-center">
           <AnimateIn direction="right" delay={0.1}>
             <span className="inline-block rounded-full bg-[#FDF2EB] px-3 py-1.5 text-[10px] font-bold tracking-wider text-[#E87C36] uppercase">
               {data.missionEyebrow}

@@ -154,7 +154,7 @@ export default function TrustContent() {
       </section>
 
       {/* ================= SECTION 2: BRAND PARTNERS DISPLAY MATRIX ================= */}
-      <section className=" max-w-7xl px-6 lg:px-10 py-10 text-left border-t border-neutral-100/60">
+      <section className="mx-auto max-w-7xl px-6 lg:px-10 py-10 text-left border-t border-neutral-100/60">
         <div className="max-w-3xl mx-left mb-16">
           <AnimateIn direction="up">
             <h3 className="text-4xl font-black tracking-tight text-neutral-900 sm:text-5xl">{data.partnerHeading}</h3>

@@ -79,7 +79,7 @@ export default async function InvestorCtaContent() {
       </section>
 
       {/* ================= DYNAMIC CONTACT FORM SECTION ("Let's Build Together") ================= */}
-      <section id="contact" className="mx-auto max-w-5xl px-6 py-12 scroll-mt-24">
+      <section id="contact" className="mx-auto max-w-7xl px-6 py-12 scroll-mt-24">
         <div className="w-full bg-[#051329] rounded-[2.5rem] p-8 md:p-16 flex flex-col lg:flex-row gap-12 text-white shadow-xl">
           
           {/* Information Column */}

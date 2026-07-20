@@ -119,7 +119,7 @@ export default async function SolutionsContent() {
                       alt="Commuter Pass Cards"
                       width={300}
                       height={250}
-                      className="object-contain max-h-[240px] w-auto"
+                      className="object-contain max-h-[350px] w-auto"
                     />
                   )}
                 </div>
@@ -151,15 +151,13 @@ export default async function SolutionsContent() {
               
               {/* Floating Absolute Merchant Corner Image Artwork */}
               {data.merchantImage && (
-                <div className="absolute right-2 bottom-0 w-[40%] h-[80%] flex items-end justify-end">
-                  <Image
+                 <Image
                     src={urlFor(data.merchantImage).url()}
                     alt="Merchant Counter Accessories"
                     width={200}
                     height={240}
-                    className="object-contain object-bottom max-h-full"
+                    className="object-contain object-bottom max-h-full absolute right-0 top-0"
                   />
-                </div>
               )}
             </div>
           </AnimateIn>
